@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title | striptags }}</title>
+    <meta name="description" content="{{ subtitle | striptags }}">
+    <style>{%  include "../assets/voorhoede-core.css" %}</style>
+</head>
+<body>
+<header role="banner" class="app-header">
+    <a href="https://www.voorhoede.nl/" class="app-logo" aria-label="De Voorhoede, front-end developers">
+        {% include "../assets/voorhoede-logo.svg" %}
+    </a>
+</header>
+<main class="project">
+    <header class="page-header">
+        <h1 class="page-header-title">{{ title | safe }}</h1>
+        <p class="page-header-sub-title">{{ subtitle | safe }}</p>
+    </header>
+
+    <div class="container">
+
+        <div class="section">
+            <div class="page-content">
+                <section>
+                    {{ body | safe }}
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="app-footer">
+
+    </footer>
+</main>
+</body>
+</html>
