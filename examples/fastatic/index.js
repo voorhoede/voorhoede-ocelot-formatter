@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
 const formatter = require('../../index');
+const path = require('path');
 
-formatter('./examples/fastatic/README.md', './examples/fastatic');
+formatter(path.join(__dirname, '/README.md'), __dirname);
