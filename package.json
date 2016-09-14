@@ -2,17 +2,28 @@
   "name": "voorhoede-ocelot-formatter",
   "version": "0.0.1",
   "description": "Format plain content as Voorhoede pages",
-  "main": "index.js",
+  "keywords": [
+    "formatter"
+  ],
   "bin": {
     "formatter": "bin/index.js"
   },
+  "main": "index.js",
   "scripts": {
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Sanne Veroude <sanne@voorhoede.nl>",
+  "author": "De Voorhoede (https://voorhoede.nl/)",
+  "homepage": "https://github.com/voorhoede/voorhoede-ocelot-formatter#readme",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voorhoede/voorhoede-ocelot-formatter"
+  },
+  "bugs": {
+    "url": "https://github.com/voorhoede/voorhoede-ocelot-formatter/issues"
+  },
   "dependencies": {
     "bluebird": "3.4.6",
     "cheerio": "0.22.0",
