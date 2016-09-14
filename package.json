@@ -1,8 +1,11 @@
 {
-  "name": "dvh-page-formatter",
+  "name": "voorhoede-ocelot-formatter",
   "version": "0.0.1",
   "description": "Format plain content as Voorhoede pages",
   "main": "index.js",
+  "bin": {
+    "formatter": "bin/index.js"
+  },
   "scripts": {
     "example:fastatic": "examples/fastatic/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +15,7 @@
   "dependencies": {
     "bluebird": "3.4.6",
     "cheerio": "0.22.0",
+    "commander": "2.9.0",
     "marked": "0.3.6",
     "nunjucks": "2.5.0",
     "path": "0.12.7"
