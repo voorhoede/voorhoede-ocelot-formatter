@@ -22,11 +22,11 @@
 
     <div class="container">
 
-        {%- if toc.length -%}
+        {%- if headings.length -%}
         <nav>
             <h2>Table of contents</h2>
             <ul>
-                {%- for item in toc -%}
+                {%- for item in headings -%}
                 {%- if item.level >= 2 %}
                 <li class="toc-level-{{ item.level }}">
                     <a href="#{{ item.id }}">{{ item.html | safe }}</a>
