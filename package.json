@@ -10,6 +10,7 @@
   "author": "Sanne Veroude <sanne@voorhoede.nl>",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "3.4.6",
     "cheerio": "0.22.0",
     "marked": "0.3.6",
     "nunjucks": "2.5.0",
