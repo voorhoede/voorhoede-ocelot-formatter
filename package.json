@@ -8,6 +8,7 @@
   },
   "scripts": {
     "example:fastatic": "examples/fastatic/index.js",
+    "commit": "git-cz",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sanne Veroude <sanne@voorhoede.nl>",
@@ -19,5 +20,14 @@
     "marked": "0.3.6",
     "nunjucks": "2.5.0",
     "path": "0.12.7"
+  },
+  "devDependencies": {
+    "commitizen": "2.8.6",
+    "cz-conventional-changelog": "1.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
