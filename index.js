@@ -3,12 +3,12 @@ const getPageData = require('./lib/get-page-data');
 const renderHtml = require('./lib/render-html');
 const getHeadings = require('./lib/get-headings');
 
-function formatter(filename, dest) {
+function formatter(filename) {
 
     return markdownToHtml(filename)
         .then(html => getPageData(html))
         .then(data => addHeadings(data))
-        .then(data => renderHtml(data, dest))
+        .then(data => renderHtml(data))
 }
 
 function addHeadings(data) {
