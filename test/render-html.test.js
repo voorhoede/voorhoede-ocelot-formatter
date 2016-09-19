@@ -5,7 +5,7 @@ const data = getData();
 const html = renderHtml(data);
 
 test('should render the title as page header title', function(t) {
-    html.then(function(html) {
+    html.then(html => {
         const page = getHtml(html);
 
         t.equal(page.titleText, 'Hello World');
@@ -14,7 +14,7 @@ test('should render the title as page header title', function(t) {
 });
 
 test('should render the sub title as page header sub title', function(t) {
-    html.then(function(html) {
+    html.then(html => {
         const page = getHtml(html);
 
         t.equal(page.subTitleText, 'Test this');
@@ -23,7 +23,7 @@ test('should render the sub title as page header sub title', function(t) {
 });
 
 test('should render a navigation item for each heading', function(t) {
-    html.then(function(html) {
+    html.then(html => {
         const page = getHtml(html);
 
         t.equal(page.headings.length, 2);
