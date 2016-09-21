@@ -6,7 +6,7 @@ Format plain content as Voorhoede pages
 
 ## Install
 
-Fastatic is written in [Node.js](http://nodejs.org/) and can be installed via [npm](https://npmjs.org/):
+Voorhoede Ocelot Formatter is written in [Node.js](http://nodejs.org/) and can be installed via [npm](https://npmjs.org/):
 
 ```bash
 $ npm install voorhoede-ocelot-formatter
