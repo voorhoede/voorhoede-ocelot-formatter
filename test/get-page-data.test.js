@@ -1,7 +1,7 @@
 const test = require('tape');
 const getPageData = require('../lib/get-page-data');
 
-test('should get the title', function(t) {
+test('should get the title', t => {
     const html = '<h1>Hello World</h1>';
     const output = getPageData(html);
 
@@ -9,7 +9,7 @@ test('should get the title', function(t) {
     t.end();
 });
 
-test('should get the first h1 as title', function(t) {
+test('should get the first h1 as title', t => {
     const html = '<h1>First title</h1><h1>Second title</h1>';
     const output = getPageData(html);
 
@@ -17,7 +17,7 @@ test('should get the first h1 as title', function(t) {
     t.end();
 });
 
-test('should get the first p as subtitle', function(t) {
+test('should get the first p as subtitle', t => {
     const html = '<h1>Hello World</h1><p>Text</p><p>Some more text</p>';
     const output = getPageData(html);
 
@@ -25,7 +25,7 @@ test('should get the first p as subtitle', function(t) {
     t.end();
 });
 
-test('should get the body', function(t) {
+test('should get the body', t => {
     const html = '<h1>Hello World</h1><p>Text</p><p>Some more text</p>';
     const output = getPageData(html);
 
