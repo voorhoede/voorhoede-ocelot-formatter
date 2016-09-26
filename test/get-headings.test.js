@@ -1,7 +1,7 @@
 const test = require('tape');
 const getHeadings = require('../lib/get-headings');
 
-test('should get the id from the heading', function(t) {
+test('should get the id from the heading', t => {
     const body = getBody();
     const headings = getHeadings(body);
 
@@ -10,7 +10,7 @@ test('should get the id from the heading', function(t) {
     t.end();
 });
 
-test('should get the level from the heading', function(t) {
+test('should get the level from the heading', t => {
     const body = getBody();
     const headings = getHeadings(body);
 
@@ -19,7 +19,7 @@ test('should get the level from the heading', function(t) {
     t.end();
 });
 
-test('should get the html from the heading', function(t) {
+test('should get the html from the heading', t => {
     const body = getBody();
     const headings = getHeadings(body);
 

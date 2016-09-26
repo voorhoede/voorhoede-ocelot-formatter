@@ -3,7 +3,7 @@ const markdownToHtml = require('../lib/markdown-to-html');
 const markdown = getMarkdown();
 const html = markdownToHtml(markdown);
 
-test('should convert markdown to html', function(t) {
+test('should convert markdown to html', t => {
     html.then(html =>  {
         t.equal(html, `<h1 id="hello-world">Hello World</h1>
 <h2 id="test">Test</h2>

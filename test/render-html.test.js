@@ -4,7 +4,7 @@ const renderHtml = require('../lib/render-html');
 const data = getData();
 const html = renderHtml(data);
 
-test('should render the title as page header title', function(t) {
+test('should render the title as page header title', t => {
     html.then(html => {
         const page = getHtml(html);
 
@@ -13,7 +13,7 @@ test('should render the title as page header title', function(t) {
     });
 });
 
-test('should render the sub title as page header sub title', function(t) {
+test('should render the sub title as page header sub title', t => {
     html.then(html => {
         const page = getHtml(html);
 
@@ -22,7 +22,7 @@ test('should render the sub title as page header sub title', function(t) {
     });
 });
 
-test('should render a navigation item for each heading', function(t) {
+test('should render a navigation item for each heading', t => {
     html.then(html => {
         const page = getHtml(html);
 
