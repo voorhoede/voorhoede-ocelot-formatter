@@ -1,5 +1,7 @@
 # Voorhoede Ocelot Formatter
 
+[![Coverage Status](https://coveralls.io/repos/github/voorhoede/voorhoede-ocelot-formatter/badge.svg?branch=master)](https://coveralls.io/github/voorhoede/voorhoede-ocelot-formatter?branch=master)
+
 Format plain content as Voorhoede pages
 
 ## Install

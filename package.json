@@ -12,14 +12,17 @@
   "scripts": {
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
-    "test": "tape test/*.js | tap-spec"
+    "test": "tape test/*.js | tap-spec",
+    "coverage": "npm run coverage:generate && npm run coverage:report",
+    "coverage:generate": "istanbul cover ./test/get-page-data.test.js",
+    "coverage:report": "cat ./coverage/lcov.info | coveralls"
   },
   "author": "De Voorhoede (https://voorhoede.nl/)",
   "homepage": "https://github.com/voorhoede/voorhoede-ocelot-formatter#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/voorhoede/voorhoede-ocelot-formatter"
+    "url": "https://github.com/voorhoede/voorhoede-ocelot-formatter"
   },
   "bugs": {
     "url": "https://github.com/voorhoede/voorhoede-ocelot-formatter/issues"
@@ -34,7 +37,9 @@
   },
   "devDependencies": {
     "commitizen": "2.8.6",
+    "coveralls": "2.11.14",
     "cz-conventional-changelog": "1.2.0",
+    "istanbul": "0.4.5",
     "tap-spec": "4.1.1",
     "tape": "4.6.0"
   },
