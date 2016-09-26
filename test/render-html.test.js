@@ -6,7 +6,7 @@ const html = renderHtml(data);
 
 test('should render the title as page header title', t => {
     html.then(html => {
-        const page = getHtml(html);
+        const page = getPageProperties(html);
 
         t.equal(page.titleText, 'Hello World');
         t.end();
@@ -15,7 +15,7 @@ test('should render the title as page header title', t => {
 
 test('should render the sub title as page header sub title', t => {
     html.then(html => {
-        const page = getHtml(html);
+        const page = getPageProperties(html);
 
         t.equal(page.subTitleText, 'Test this');
         t.end();
@@ -24,7 +24,7 @@ test('should render the sub title as page header sub title', t => {
 
 test('should render a navigation item for each heading', t => {
     html.then(html => {
-        const page = getHtml(html);
+        const page = getPageProperties(html);
 
         t.equal(page.headings.length, 2);
         t.end();
@@ -42,7 +42,7 @@ function getData() {
     }
 }
 
-function getHtml(html) {
+function getPageProperties(html) {
     const $ = cheerio.load(html);
     const $body = $('body');
 
