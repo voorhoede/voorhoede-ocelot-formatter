@@ -1,10 +1,12 @@
 # Voorhoede Ocelot Formatter
 
+[![Coverage Status](https://coveralls.io/repos/github/voorhoede/voorhoede-ocelot-formatter/badge.svg?branch=master)](https://coveralls.io/github/voorhoede/voorhoede-ocelot-formatter?branch=master)
+
 Format plain content as Voorhoede pages
 
 ## Install
 
-Fastatic is written in [Node.js](http://nodejs.org/) and can be installed via [npm](https://npmjs.org/):
+Voorhoede Ocelot Formatter is written in [Node.js](http://nodejs.org/) and can be installed via [npm](https://npmjs.org/):
 
 ```bash
 $ npm install voorhoede-ocelot-formatter
