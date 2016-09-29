@@ -32,7 +32,8 @@
     "commander": "2.9.0",
     "marked": "0.3.6",
     "nunjucks": "2.5.0",
-    "path": "0.12.7"
+    "path": "0.12.7",
+    "prismjs": "1.5.1"
   },
   "devDependencies": {
     "commitizen": "2.8.6",
