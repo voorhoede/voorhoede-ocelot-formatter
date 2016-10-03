@@ -12,11 +12,18 @@ test('should render code with javascript language', t => {
     t.end();
 });
 
+test('should render code with json language', t => {
+    const snippet = renderCode(code, 'json');
+    const $ = cheerio.load(snippet);
+
+    t.equal($('pre').attr('class'), 'language-json');
+    t.notEqual($('span').length, 0);
+    t.end();
+});
+
 test('should render code with unknown language', t => {
     const snippet = renderCode(code);
     const $ = cheerio.load(snippet);
-
-    console.log(snippet);
 
     t.equal($('pre').attr('class'), 'language-unknown');
     t.equal($('span').length, 0);
