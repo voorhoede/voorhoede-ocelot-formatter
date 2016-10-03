@@ -2,6 +2,9 @@
 
 const formatter = require('../index');
 const pkg = require('../package');
+const path = require('path');
+const promisifyAll = require('bluebird').promisifyAll;
+const fs = promisifyAll(require('fs'));
 
 const program = require('commander')
     .version(pkg.version)
@@ -10,5 +13,9 @@ const program = require('commander')
     .arguments('<file>')
     .parse(process.argv);
 
-formatter(program.args[0])
-    .then(html => console.log(html));
+const srcFilename = path.join(program.args[0]);
+
+fs.readFileAsync(srcFilename, 'utf8')
+    .then(readme => formatter(readme))
+    .then(html => console.log(html))
+    .catch(err => console.error(err));
