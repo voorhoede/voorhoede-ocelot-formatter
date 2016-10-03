@@ -47,7 +47,7 @@ function getPageProperties(html) {
 
     return {
         documentTitle: $html.find('title').html(),
-        pageTitle: $html.find('h1').html(),
+        pageTitle: $html.find('.page-header-title').html(),
         headings: $html.find('*[class^="toc-level"]'),
         body: $html.find('.page-content section').html()
     }
