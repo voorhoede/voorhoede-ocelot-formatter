@@ -32,8 +32,22 @@ To use Voorhoede Ocelot Formatter programmatically import the `voorhoede-ocelot-
 const formatter = require('voorhoede-ocelot-formatter');
 ```
 
-Convert markdown file to a Voorhoede page
+The Voorhoede Ocelot Formatter expects plain content as an argument. The way you read or fetch a file is up to you, as is the way you handle the output.
+E.g, you can fetch content from a remote URL and log the output to the console:
 
 ```javascript
-formatter('./README.md')
+fetch('https://raw.githubusercontent.com/voorhoede/voorhoede-ocelot-formatter/master/README.md')
+    .then(response => response.text())
+    .then(readme => formatter(readme))
+    .then(html => console.log(html))
+    .catch(err => console.error(err));
+```
+
+or you can read a file from disk and write the output to an HTML file:
+
+```javascript
+fs.readFileAsync(srcFilename, 'utf8')
+    .then(readme => formatter(readme))
+    .then(html => fs.writeFile(destFilename, html))
+    .catch(err => console.error(err));
 ```
