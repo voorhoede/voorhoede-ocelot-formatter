@@ -50,7 +50,11 @@
             </div>
         </div>
 
-        <footer class="app-footer"></footer>
+        {%- if footer %}
+        <footer class="app-footer">
+            {{ footer | safe }}
+        </footer>
+        {%- endif -%}
 
     </main>
 
