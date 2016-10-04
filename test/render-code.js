@@ -8,7 +8,7 @@ test('should render code with javascript language', t => {
     const $ = cheerio.load(snippet);
 
     t.equal($('pre').attr('class'), 'language-javascript');
-    t.notEqual($('span').length, 0);
+    t.equal($('.token').length >= 1, true);
     t.end();
 });
 
@@ -17,7 +17,7 @@ test('should render code with json language', t => {
     const $ = cheerio.load(snippet);
 
     t.equal($('pre').attr('class'), 'language-json');
-    t.notEqual($('span').length, 0);
+    t.equal($('.token').length >= 1, true);
     t.end();
 });
 
@@ -26,7 +26,7 @@ test('should render code with unknown language', t => {
     const $ = cheerio.load(snippet);
 
     t.equal($('pre').attr('class'), 'language-unknown');
-    t.equal($('span').length, 0);
+    t.equal($('.token').length, 0);
     t.end();
 });
 
