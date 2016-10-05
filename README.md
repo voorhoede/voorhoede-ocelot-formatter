@@ -18,7 +18,13 @@ You can use Voorhoede Ocelot Formatter both as a CLI tool and programmatically i
 
 ### CLI
 
-Convert markdown file to html and log output to the console:
+Convert markdown file to HTML and output content to HTML file:
+
+```bash
+$ formatter README.md path/to/output/file.html
+```
+
+Or simply log output to the console:
 
 ```bash
 $ formatter README.md
