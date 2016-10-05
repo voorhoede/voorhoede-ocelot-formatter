@@ -10,6 +10,8 @@
   },
   "main": "index.js",
   "scripts": {
+    "prebuild": "rm -rf dist/ && mkdir dist/",
+    "build": "node bin/index.js README.md >> dist/index.html",
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
     "test": "tape test/*.js | tap-spec",
