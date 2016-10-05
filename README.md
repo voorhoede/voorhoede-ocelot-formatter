@@ -27,11 +27,12 @@ $ formatter README.md
 ### JS
 
 To use Voorhoede Ocelot Formatter programmatically import the `voorhoede-ocelot-formatter` module.
-Voorhoede Ocelot Formatter expects plain content as an argument.
+The formatter expects content in markdown (string) as an argument.
+The formatter returns a promise which resolves with the content as HTML (string).
 
 ```javascript
 const formatter = require('voorhoede-ocelot-formatter');
-const readme = 'content in markdown';
+const readme = '#content in *markdown*';
 
 formatter(readme)
     .then(html => console.log(html))
@@ -56,5 +57,5 @@ fs.readFile('path/to/README.md', 'utf8', (err, readme) => {
     formatter(readme)
         .then(html => fs.writeFile('path/to/output', html))
         .catch(err => console.error(err));
-})'
+});
 ```
