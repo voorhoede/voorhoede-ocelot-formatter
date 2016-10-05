@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "clean:css",
+    "build": "npm run clean:css",
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
     "test": "tape test/*.js | tap-spec",
