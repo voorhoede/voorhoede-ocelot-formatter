@@ -10,9 +10,11 @@
   },
   "main": "index.js",
   "scripts": {
+    "build": "clean:css",
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
     "test": "tape test/*.js | tap-spec",
+    "clean:css": "cleancss -o src/assets/voorhoede-core.min.css src/assets/voorhoede-core.css",
     "coverage": "npm run coverage:generate && npm run coverage:report",
     "coverage:generate": "istanbul cover tape -- test/**/*.js",
     "coverage:report": "cat ./coverage/lcov.info | coveralls"
@@ -37,6 +39,7 @@
     "prismjs": "1.5.1"
   },
   "devDependencies": {
+    "clean-css": "3.4.20",
     "commitizen": "2.8.6",
     "coveralls": "2.11.14",
     "cz-conventional-changelog": "1.2.0",
