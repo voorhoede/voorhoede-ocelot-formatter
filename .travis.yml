@@ -1,19 +1,25 @@
 sudo: false
 language: node_js
+node_js:
+- '6'
 cache:
   directories:
-    - node_modules
+  - node_modules
 notifications:
   email: false
-node_js:
-  - '6'
-before_install:
-  - npm i -g npm@^2.0.0
 before_script:
-  - npm prune
+- npm prune
 script:
-  - npm run test
-  - npm run coverage
+- npm run test
+- npm run coverage
+- npm run build
 branches:
   only:
   - master
+after_success:
+- bash ./scripts/deploy.sh
+env:
+  global:
+  - GH_USER: voorhoede
+  - GH_REPO: voorhoede-ocelot-formatter
+  - secure: xtrhAk1738qtVwk1J8eLvvHU0lVhRHW0rEjFNyYeD1jTLorgRJ38Gmg5VgLOTnM7HDgCSmfW1mPO64Jceri4+JKeixtofWqfOZRuYt0H0IAw/e577jO/FY8QGRC6TYrMpuQ1+HgFohxXNF4RelrCLK+VgE9zGulRkfiq4G3RiK4pOfkI7H9lengIJQCzJ4vo4Spwa6A0IV+1GAdRxZzK2/aBFsmZItk5Yshnme2XTnyB/LggqFl2/FJ0ymqVgMeXyJ84lUUBZ28vSpCyZDVWcjEAEP9D8LqUM3ShLt47lASF+WJt+YR12yLHs8AUuIqUE8pO6vFWszJISTCzvIGhWLs/NoT+2jp1e0QYpcYwxHkRnd4UuHGSphuRDKcGVpN0earORgm33Omc5SYmpK4otFp1tf8IguJE4NcNwpGgj1+pNqijZIAfB76Y+j5RBL51nRLKquSZ4O7vyvWUIPqlTzXXxV2Mhw/P5aWpaWZyIpj22z09Nhc5N0+tKTHdhae+hkEGssN3JAHHT9McISTqmYAxHhbm3ObgBI6WUxTyICzwxLFWL7ZzuBCZdtEg9MVUOs/Ios8HS+YYN7L5ciV5vBQ/sYyUuA7F8dVz4WU+I8wCe1t2aoybXBZNWxHWoEoCe0/ZYjUHvG7eYCR6xoKjHaR7fa/c8WW9b63TA89WykQ=
