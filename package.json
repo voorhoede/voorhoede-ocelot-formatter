@@ -10,12 +10,13 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "node bin/index.js README.md >> dist/index.html && npm run clean:css",
+    "build": "npm run build:css && npm run build:index",
+    "build:index": "node bin/index.js README.md >> dist/index.html",
+    "build:css": "cleancss -o src/assets/voorhoede-core.min.css src/assets/voorhoede-core.css",
     "prebuild": "rm -rf dist/ && mkdir dist/",
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
     "test": "tape test/*.js | tap-spec",
-    "clean:css": "cleancss -o src/assets/voorhoede-core.min.css src/assets/voorhoede-core.css",
     "coverage": "npm run coverage:generate && npm run coverage:report",
     "coverage:generate": "istanbul cover tape -- test/**/*.js",
     "coverage:report": "cat ./coverage/lcov.info | coveralls"
