@@ -13,9 +13,10 @@ const program = require('commander')
     .option('-o, --output <file>', 'write to HTML file')
     .parse(process.argv);
 
-const srcFilename = path.join(program.args[0]);
+const srcFile = path.join(program.args[0]);
+const destFile = program.output;
 
-fs.readFileAsync(srcFilename, 'utf8')
+fs.readFileAsync(srcFile, 'utf8')
     .then(readme => formatter(readme))
-    .then(html => program.output ? fs.writeFile(program.output, html) : console.log(html))
+    .then(html => destFile ? fs.writeFile(destFile, html) : console.log(html))
     .catch(err => console.error(err));
