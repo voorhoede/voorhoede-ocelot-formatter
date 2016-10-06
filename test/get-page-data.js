@@ -32,3 +32,19 @@ test('should get the body', t => {
     t.equal(output.body, '<p>Some more text</p>');
     t.end();
 });
+
+test('should display the footer if there is a horizontal rule', t => {
+    const html = '<h1>Hello World</h1><p>Text</p><p>Some more text</p><hr><p>some footer content</p>';
+    const output = getPageData(html);
+
+    t.equal(output.footer, '<p>some footer content</p>');
+    t.end();
+});
+
+test('should not display the footer if there is no horizontal rule', t => {
+    const html = '<h1>Hello World</h1><p>Text</p><p>Some more text</p>';
+    const output = getPageData(html);
+
+    t.equal(output.footer, '');
+    t.end();
+});
