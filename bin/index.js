@@ -3,7 +3,9 @@
 const formatter = require('../index');
 const pkg = require('../package');
 const path = require('path');
+const promisify = require('bluebird').promisify;
 const promisifyAll = require('bluebird').promisifyAll;
+const makeDir = promisify(require('mkdirp'));
 const fs = promisifyAll(require('fs'));
 
 const program = require('commander')
@@ -16,7 +18,15 @@ const program = require('commander')
 const srcFile = path.join(program.args[0]);
 const destFile = program.output;
 
-fs.readFileAsync(srcFile, 'utf8')
-    .then(readme => formatter(readme))
-    .then(html => destFile ? fs.writeFile(destFile, html) : console.log(html))
-    .catch(err => console.error(err));
+const format = fs.readFileAsync(srcFile, 'utf8')
+    .then(readme => formatter(readme));
+
+if (program.output) {
+    format.then(html => {
+        makeDir(path.dirname(destFile))
+            .then(() => fs.writeFileAsync(destFile, html))
+            .catch(err => console.error(err));
+    })
+} else {
+    format.then(html => console.log(html))
+}
