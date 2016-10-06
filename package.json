@@ -10,6 +10,8 @@
   },
   "main": "index.js",
   "scripts": {
+    "prebuild": "rm -rf dist/ && mkdir dist/",
+    "build": "node bin/index.js README.md >> dist/index.html",
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
     "test": "tape test/*.js | tap-spec",
@@ -33,7 +35,8 @@
     "commander": "2.9.0",
     "marked": "0.3.6",
     "nunjucks": "2.5.0",
-    "path": "0.12.7"
+    "path": "0.12.7",
+    "prismjs": "1.5.1"
   },
   "devDependencies": {
     "commitizen": "2.8.6",
