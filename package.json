@@ -10,7 +10,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean:css",
+    "build": "node bin/index.js README.md >> dist/index.html && npm run clean:css",
+    "prebuild": "rm -rf dist/ && mkdir dist/",
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
     "test": "tape test/*.js | tap-spec",
