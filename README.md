@@ -64,5 +64,5 @@ fs.readFile('path/to/README.md', 'utf8', (err, readme) => {
 
 ### Footer
 
-If you want to have content displayed in the footer, you can add a horizontal rule in your markdown content.
+If you want to have content displayed in the footer, you can add a horizontal rule (---) in your markdown content.
 All content below the last horizontal rule will be displayed in the footer.
