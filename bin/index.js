@@ -10,7 +10,7 @@ const program = require('commander')
     .version(pkg.version)
     .description(`${pkg.name} (v${pkg.version}): ${pkg.description}`)
     .usage('<file> [options]')
-    .option('-o, --output', 'write to HTML file')
+    .option('-o, --output <file>', 'write to HTML file')
     .parse(process.argv);
 
 const srcFilename = path.join(program.args[0]);
