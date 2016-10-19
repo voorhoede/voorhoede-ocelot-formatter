@@ -4,7 +4,10 @@ const renderHtml = require('./lib/render-html');
 const getHeadings = require('./lib/get-headings');
 
 function formatter(markdown, options) {
-    options = Object.assign({ language: 'en' }, options);
+    options = Object.assign({
+        language: 'en',
+        toc: { minLevel: 2, maxLevel: 6 }
+    }, options);
 
     return markdownToHtml(markdown)
         .then(html => getPageData(html))
