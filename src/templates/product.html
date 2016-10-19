@@ -28,12 +28,12 @@
 
         <div class="section">
             <div class="side-content">
-                {%- if headings.length -%}
+                {%- if options.toc -%}
                 <nav class="table-of-contents">
                     <h2>Table of contents</h2>
                     <ul>
                         {%- for item in headings -%}
-                        {%- if item.level >= 2 %}
+                        {%- if item.level >= options.toc.minLevel and item.level <= options.toc.maxLevel -%}
                         <li class="toc-level-{{ item.level }}">
                             <a href="#{{ item.id }}">{{ item.html | safe }}</a>
                         </li>
