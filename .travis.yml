@@ -10,9 +10,9 @@ notifications:
 before_script:
 - npm prune
 script:
-- npm run test
-- npm run coverage
-- npm run build
+  - npm run test
+  - npm run coverage
+  - npm run build
 branches:
   only:
   - master
