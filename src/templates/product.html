@@ -27,8 +27,8 @@
         </header>
 
         <div class="section">
+            {%- if options.toc -%}
             <div class="side-content">
-                {%- if options.toc -%}
                 <nav class="table-of-contents">
                     <h2>Table of contents</h2>
                     <ul>
@@ -41,8 +41,8 @@
                         {%- endfor -%}
                     </ul>
                 </nav>
-                {%- endif -%}
             </div>
+            {%- endif -%}
             <div class="page-content">
                 <section>
                     {{ body | safe }}
