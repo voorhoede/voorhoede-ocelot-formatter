@@ -258,6 +258,7 @@ link:hover {
 }
 
 .app-header {
+    position: relative;
     overflow: hidden;
     padding: 1rem .875rem;
     font-family: sans-serif
@@ -645,4 +646,31 @@ pre[class*=language-] {
 
 .token.entity {
     cursor: help
+}
+
+.github-corner svg {
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+    height: 54px;
+    width: 54px;
+}
+
+@media (min-width: 600px) {
+    .github-corner svg {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+.github-corner:hover .octo-arm,
+.github-corner:focus .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+    0%,100% { transform:rotate(0deg) }
+    20%,60% { transform:rotate(-25deg) }
+    40%,80% { transform:rotate(10deg) }
 }
