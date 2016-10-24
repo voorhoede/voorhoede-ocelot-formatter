@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title | striptags }}</title>
     <meta name="description" content="{{ subtitle | striptags }}">
-    <style>{%  include "../assets/voorhoede-core.css" %}</style>
+    <style>{%  include "../assets/index.min.css" %}</style>
 </head>
 <body>
 
@@ -56,7 +56,11 @@
             </div>
         </div>
 
-        <footer class="app-footer"></footer>
+        {%- if footer %}
+        <footer class="app-footer" role="contentinfo">
+            {{ footer | safe }}
+        </footer>
+        {%- endif -%}
 
     </main>
 

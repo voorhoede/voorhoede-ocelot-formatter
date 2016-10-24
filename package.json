@@ -10,6 +10,10 @@
   },
   "main": "index.js",
   "scripts": {
+    "build": "npm run build:css && npm run build:index",
+    "build:index": "node bin/index.js README.md >> dist/index.html",
+    "build:css": "cleancss -o src/assets/index.min.css src/assets/index.css",
+    "prebuild": "rm -rf dist/ && mkdir dist/",
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
     "test": "tape test/*.js | tap-spec",
@@ -37,6 +41,7 @@
     "prismjs": "1.5.1"
   },
   "devDependencies": {
+    "clean-css": "3.4.20",
     "commitizen": "2.8.6",
     "coveralls": "2.11.14",
     "cz-conventional-changelog": "1.2.0",
