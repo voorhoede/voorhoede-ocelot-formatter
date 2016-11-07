@@ -18,10 +18,16 @@ You can use Voorhoede Ocelot Formatter both as a CLI tool and programmatically i
 
 ### CLI
 
-Convert markdown file to html and log output to the console:
+Convert markdown file to HTML and **log output to the console**:
 
 ```bash
 $ formatter README.md
+```
+
+Convert markdown file to HTML and **output content to an HTML file** using `--output`:
+
+```bash
+$ formatter README.md --output path/to/output/file.html
 ```
 
 ### JS
@@ -66,3 +72,9 @@ fs.readFile('path/to/README.md', 'utf8', (err, readme) => {
 
 If you want to have content displayed in the footer, you can add a horizontal rule (---) in your markdown content.
 All content below the last horizontal rule will be displayed in the footer.
+
+---
+
+## License
+
+[MIT licensed](https://github.com/voorhoede/voorhoede-ocelot-formatter/blob/master/LICENSE) © [De Voorhoede](https://www.voorhoede.nl/)
