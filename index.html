@@ -59,8 +59,9 @@
 <pre class="language-unknown"><code>$ npm install voorhoede-ocelot-formatter</code></pre><h2 id="usage">Usage</h2>
 <p>You can use Voorhoede Ocelot Formatter both as a CLI tool and programmatically in JS.</p>
 <h3 id="cli">CLI</h3>
-<p>Convert markdown file to html and log output to the console:</p>
-<pre class="language-unknown"><code>$ formatter README.md</code></pre><h3 id="js">JS</h3>
+<p>Convert markdown file to HTML and <strong>log output to the console</strong>:</p>
+<pre class="language-unknown"><code>$ formatter README.md</code></pre><p>Convert markdown file to HTML and <strong>output content to an HTML file</strong> using <code>--output</code>:</p>
+<pre class="language-unknown"><code>$ formatter README.md --output path/to/output/file.html</code></pre><h3 id="js">JS</h3>
 <p>To use Voorhoede Ocelot Formatter programmatically import the <code>voorhoede-ocelot-formatter</code> module.
 The formatter expects content in markdown (string) as an argument.
 The formatter returns a promise which resolves with the content as HTML (string).</p>
