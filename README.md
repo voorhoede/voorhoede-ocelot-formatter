@@ -30,6 +30,24 @@ Convert markdown file to HTML and **output content to an HTML file** using `--ou
 $ formatter README.md --output path/to/output/file.html
 ```
 
+Convert markdown file to HTML and **set the language of the HTML document** using `--lang`:
+
+```bash
+$ formatter README.md --lang nl
+```
+
+Convert markdown file to HTML and **specify the ToC levels** using `--toc`:
+
+```bash
+$ formatter README.md --toc 3..4
+```
+
+Convert markdown file to HTML and **specify that no ToC should be rendered** using `--noToc`:
+
+```bash
+$ formatter README.md --noToc
+```
+
 ### JS
 
 To use Voorhoede Ocelot Formatter programmatically import the `voorhoede-ocelot-formatter` module.
@@ -64,6 +82,24 @@ fs.readFile('path/to/README.md', 'utf8', (err, readme) => {
         .then(html => fs.writeFile('path/to/output', html))
         .catch(err => console.error(err));
 });
+```
+
+Specify the language of the HTML document:
+
+```javascript
+formatter(readme, { language: 'nl' })
+```
+
+Specify the ToC levels:
+
+```javascript
+formatter(readme, toc: { minLevel: 3, maxLevel: 3 })
+```
+
+Specify that no ToC should be rendered:
+
+```javascript
+formatter(readme, toc: false)
 ```
 
 ## Formatting options
