@@ -9,6 +9,7 @@ function formatter(markdown, options) {
         .then(html => getPageData(html))
         .then(data => configData(data, options))
         .then(data => renderHtml(data))
+        .catch(err => { throw err });
 }
 
 module.exports = formatter;

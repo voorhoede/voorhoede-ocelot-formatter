@@ -7,7 +7,6 @@ const promisify = require('bluebird').promisify;
 const promisifyAll = require('bluebird').promisifyAll;
 const makeDir = promisify(require('mkdirp'));
 const fs = promisifyAll(require('fs'));
-const ISO6391 = require('iso-639-1');
 
 function range(val) {
     return val.split('..').map(Number);
@@ -34,16 +33,14 @@ const format = fs.readFileAsync(srcFile, 'utf8')
         toc: program.noToc ? false : { minLevel: program.toc[0], maxLevel: program.toc[1] }
     }));
 
-if (program.lang === undefined || ISO6391.validate(program.lang)) {
-    if (program.output) {
-        format.then(html => {
+if (program.output) {
+    format
+        .then(html => {
             makeDir(path.dirname(destFile))
-                .then(() => fs.writeFileAsync(destFile, html))
-                .catch(err => console.error(err));
+            .then(() => fs.writeFileAsync(destFile, html))
+            .catch(err => console.error(err));
         })
-    } else {
-        format.then(html => console.log(html))
-    }
+        .catch(err => console.log(err));
 } else {
-    console.log('Your language argument is invalid');
+    format.then(html => console.log(html))
 }
