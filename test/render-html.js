@@ -37,8 +37,9 @@ function getData() {
         subtitle: 'Test this',
         headings: [
             { html: 'Test me', id: 'test', level: 2 },
-            { html: 'Test me too', id: 'testing', level:  3}
-        ]
+            { html: 'Test me too', id: 'testing', level: 3}
+        ],
+        options: { toc: { minLevel: 2, maxLevel: 6 } }
     }
 }
 
