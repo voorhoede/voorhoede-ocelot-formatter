@@ -536,6 +536,22 @@ link:hover {
     .side-content .table-of-contents ul li {
         margin-bottom: .5rem
     }
+
+    .toc-level-3 {
+        margin-left: 1rem;
+    }
+
+    .toc-level-4 {
+        margin-left: 2rem;
+    }
+
+    .toc-level-5 {
+        margin-left: 3rem;
+    }
+
+    .toc-level-6 {
+        margin-left: 4rem;
+    }
 }
 
 code[class*=language-],
