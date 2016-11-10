@@ -516,41 +516,41 @@ link:hover {
     float: left
 }
 
-.side-content .table-of-contents {
+.side-content .toc {
     display: none
 }
 
-.blog-post .side-content .table-of-contents h2 {
+.blog-post .side-content .toc h2 {
     color: #12353C
 }
 
 @media (min-width:1024px) {
-    .side-content .table-of-contents {
+    .side-content .toc {
         display: block
     }
-    .side-content .table-of-contents ul {
+    .side-content .toc ul {
         list-style: none;
         padding-left: 0;
         margin: 0
     }
-    .side-content .table-of-contents ul li {
+    .side-content .toc ul li {
         margin-bottom: .5rem
     }
 
     .toc-level-3 {
-        margin-left: 1rem;
+        margin-left: 1em;
     }
 
     .toc-level-4 {
-        margin-left: 2rem;
+        margin-left: 2em;
     }
 
     .toc-level-5 {
-        margin-left: 3rem;
+        margin-left: 3em;
     }
 
     .toc-level-6 {
-        margin-left: 4rem;
+        margin-left: 4em;
     }
 }
 
