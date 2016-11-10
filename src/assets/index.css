@@ -284,12 +284,6 @@ link:hover {
     }
 }
 
-@media (min-width:1024px) and (min-width:1024px) {
-    .app-header {
-        padding: 1rem calc(49.9% - 512px + 2rem)
-    }
-}
-
 .app-header-identity {
     float: left
 }
