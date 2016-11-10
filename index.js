@@ -1,18 +1,15 @@
 const markdownToHtml = require('./lib/markdown-to-html');
 const getPageData = require('./lib/get-page-data');
+const configData = require('./lib/config-data');
 const renderHtml = require('./lib/render-html');
-const getHeadings = require('./lib/get-headings');
 
-function formatter(markdown) {
+function formatter(markdown, options) {
 
     return markdownToHtml(markdown)
         .then(html => getPageData(html))
-        .then(data => addHeadings(data))
+        .then(data => configData(data, options))
         .then(data => renderHtml(data))
-}
-
-function addHeadings(data) {
-    return Object.assign({}, data, { headings: getHeadings(data.body) });
+        .catch(err => { throw err });
 }
 
 module.exports = formatter;
