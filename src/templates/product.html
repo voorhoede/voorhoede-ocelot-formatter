@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ options.lang }}">
+<html lang="{{ lang }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,13 +27,13 @@
         </header>
 
         <div class="section">
-            {%- if options.toc -%}
+            {%- if toc -%}
             <div class="side-content">
                 <nav class="table-of-contents">
                     <h2>Table of contents</h2>
                     <ul>
                         {%- for item in headings -%}
-                        {%- if item.level >= options.toc.minLevel and item.level <= options.toc.maxLevel -%}
+                        {%- if item.level >= toc.minLevel and item.level <= toc.maxLevel -%}
                         <li class="toc-level-{{ item.level }}">
                             <a href="#{{ item.id }}">{{ item.html | safe }}</a>
                         </li>

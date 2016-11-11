@@ -1,5 +1,5 @@
 const test = require('tape');
-const configData = require('../lib/config-data');
+const configData = require('../lib/define-settings');
 const data = getData();
 
 test('should set the passed language value as the language property', t => {
