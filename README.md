@@ -30,13 +30,19 @@ Convert markdown file to HTML and **output content to an HTML file** using `--ou
 $ formatter README.md --output path/to/output/file.html
 ```
 
-Convert markdown file to HTML and **set the language of the HTML document** using `--lang`:
+#### Options
+
+##### Document language
+
+The default document language is set to 'en'. You can **specify another language** using `--lang`:
 
 ```bash
 $ formatter README.md --lang nl
 ```
 
-Convert markdown file to HTML and **specify the ToC levels** using `--toc`:
+##### Table of contents levels
+
+By default the table of contents renders heading levels 2 to 6. You can **specify different ToC levels** using `--toc`:
 
 ```bash
 $ formatter README.md --toc 3..4
@@ -84,16 +90,22 @@ fs.readFile('path/to/README.md', 'utf8', (err, readme) => {
 });
 ```
 
-Specify the language of the HTML document:
+#### Options
+
+##### Document language
+
+The default document language is set to 'en'. You can **specify another language**:
 
 ```javascript
 formatter(readme, { language: 'nl' })
 ```
 
-Specify the ToC levels:
+##### Table of contents levels
+
+By default the table of contents renders heading levels 2 to 6. You can **specify different ToC levels**:
 
 ```javascript
-formatter(readme, toc: { minLevel: 3, maxLevel: 3 })
+formatter(readme, toc: { minLevel: 3, maxLevel: 4 })
 ```
 
 Specify that no ToC should be rendered:
