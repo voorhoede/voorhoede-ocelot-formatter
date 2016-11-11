@@ -8,8 +8,9 @@ const promisifyAll = require('bluebird').promisifyAll;
 const makeDir = promisify(require('mkdirp'));
 const fs = promisifyAll(require('fs'));
 
-function range(val) {
-    return val.split('..').map(Number);
+function range(value) {
+    const values = value.split('..').map(Number);
+    return { min: values[0], max: values[1] }
 }
 
 const program = require('commander')
@@ -29,8 +30,8 @@ program.toc = program.toc || [];
 
 const format = fs.readFileAsync(srcFile, 'utf8')
     .then(readme => formatter(readme, {
-        language: program.lang,
-        toc: program.noToc ? false : { minLevel: program.toc[0], maxLevel: program.toc[1] }
+        lang: program.lang,
+        toc: program.noToc ? false : { minLevel: program.toc.min, maxLevel: program.toc.max }
     }));
 
 if (program.output) {
