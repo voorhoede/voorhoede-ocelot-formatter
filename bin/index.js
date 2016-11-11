@@ -38,10 +38,11 @@ if (program.output) {
     format
         .then(html => {
             makeDir(path.dirname(destFile))
-            .then(() => fs.writeFileAsync(destFile, html))
-            .catch(err => console.error(err));
+                .then(() => fs.writeFileAsync(destFile, html))
         })
-        .catch(err => console.log(err));
+        .catch(err => console.error(err));
 } else {
-    format.then(html => console.log(html))
+    format
+        .then(html => console.log(html))
+        .catch(err => console.log(err));
 }

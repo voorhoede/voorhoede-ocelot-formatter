@@ -6,8 +6,7 @@ function formatter(markdown, options) {
 
     return markdownToHtml(markdown)
         .then(html => getPageData(html))
-        .then(data => renderHtml(data, options))
-        .catch(err => { throw err });
+        .then(data => renderHtml(data, options));
 }
 
 module.exports = formatter;
