@@ -105,20 +105,20 @@ formatter(readme, { language: 'nl' })
 By default the table of contents renders heading levels 2 to 6. You can **specify different ToC levels**:
 
 ```javascript
-formatter(readme, toc: { minLevel: 3, maxLevel: 4 })
+formatter(readme, { toc: { minLevel: 3, maxLevel: 4 } })
 ```
 
 Specify that no ToC should be rendered:
 
 ```javascript
-formatter(readme, toc: false)
+formatter(readme, { toc: false })
 ```
 
 ## Formatting options
 
 ### Footer
 
-If you want to have content displayed in the footer, you can add a horizontal rule (---) in your markdown content.
+If you want to have content displayed in the footer, you can add a horizontal rule (`---`) in your markdown content.
 All content below the last horizontal rule will be displayed in the footer.
 
 ---
