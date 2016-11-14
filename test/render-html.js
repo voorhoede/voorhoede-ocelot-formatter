@@ -2,6 +2,7 @@ const test = require('tape');
 const cheerio = require('cheerio');
 const renderHtml = require('../lib/render-html');
 const data = getData();
+
 const html = renderHtml(data);
 
 test('should render the title as page header title', t => {
@@ -26,7 +27,7 @@ test('should render a navigation item for each heading', t => {
     html.then(html => {
         const page = getPageProperties(html);
 
-        t.equal(page.headings.length, 2);
+        t.equal(page.headings.length, 1);
         t.end();
     });
 });
@@ -35,10 +36,7 @@ function getData() {
     return {
         title: 'Hello World',
         subtitle: 'Test this',
-        headings: [
-            { html: 'Test me', id: 'test', level: 2 },
-            { html: 'Test me too', id: 'testing', level:  3}
-        ]
+        body: '<h2>Heading level 2</h2><p>Some body content</p>'
     }
 }
 
