@@ -1,5 +1,6 @@
 # Voorhoede Ocelot Formatter
 
+[![Build Status](https://travis-ci.org/voorhoede/voorhoede-ocelot-formatter.svg?branch=master)](https://travis-ci.org/voorhoede/voorhoede-ocelot-formatter)
 [![Coverage Status](https://coveralls.io/repos/github/voorhoede/voorhoede-ocelot-formatter/badge.svg?branch=master)](https://coveralls.io/github/voorhoede/voorhoede-ocelot-formatter?branch=master)
 
 Format plain content as Voorhoede pages
