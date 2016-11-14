@@ -37,7 +37,7 @@ const format = fs.readFileAsync(srcFile, 'utf8')
 if (program.output) {
     format
         .then(html => {
-            makeDir(path.dirname(destFile))
+            return makeDir(path.dirname(destFile))
                 .then(() => fs.writeFileAsync(destFile, html))
         })
         .catch(err => console.error(err));
