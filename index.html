@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,30 +26,36 @@
             <p class="page-header-sub-title"><a href="https://coveralls.io/github/voorhoede/voorhoede-ocelot-formatter?branch=master"><img src="https://coveralls.io/repos/github/voorhoede/voorhoede-ocelot-formatter/badge.svg?branch=master" alt="Coverage Status"></a></p>
         </header>
 
-        <div class="section">
-            <div class="side-content"><nav class="toc">
+        <div class="section"><div class="side-content">
+                <nav class="toc">
                     <h2>Table of contents</h2>
-                    <ul>
-                        <li class="toc-level-2">
+                    <ul><li class="toc-level-2">
                             <a href="#install">Install</a>
-                        </li>
-                        <li class="toc-level-2">
+                        </li><li class="toc-level-2">
                             <a href="#usage">Usage</a>
-                        </li>
-                        <li class="toc-level-3">
+                        </li><li class="toc-level-3">
                             <a href="#cli">CLI</a>
-                        </li>
-                        <li class="toc-level-3">
+                        </li><li class="toc-level-4">
+                            <a href="#options">Options</a>
+                        </li><li class="toc-level-5">
+                            <a href="#document-language">Document language</a>
+                        </li><li class="toc-level-5">
+                            <a href="#table-of-contents-levels">Table of contents levels</a>
+                        </li><li class="toc-level-3">
                             <a href="#js">JS</a>
-                        </li>
-                        <li class="toc-level-2">
+                        </li><li class="toc-level-4">
+                            <a href="#options">Options</a>
+                        </li><li class="toc-level-5">
+                            <a href="#document-language">Document language</a>
+                        </li><li class="toc-level-5">
+                            <a href="#table-of-contents-levels">Table of contents levels</a>
+                        </li><li class="toc-level-2">
                             <a href="#formatting-options">Formatting options</a>
-                        </li>
-                        <li class="toc-level-3">
+                        </li><li class="toc-level-3">
                             <a href="#footer">Footer</a>
                         </li></ul>
-                </nav></div>
-            <div class="page-content">
+                </nav>
+            </div><div class="page-content">
                 <section>
                     
 
@@ -61,7 +67,13 @@
 <h3 id="cli">CLI</h3>
 <p>Convert markdown file to HTML and <strong>log output to the console</strong>:</p>
 <pre class="language-unknown"><code>$ formatter README.md</code></pre><p>Convert markdown file to HTML and <strong>output content to an HTML file</strong> using <code>--output</code>:</p>
-<pre class="language-unknown"><code>$ formatter README.md --output path/to/output/file.html</code></pre><h3 id="js">JS</h3>
+<pre class="language-unknown"><code>$ formatter README.md --output path/to/output/file.html</code></pre><h4 id="options">Options</h4>
+<h5 id="document-language">Document language</h5>
+<p>The default document language is set to &apos;en&apos;. You can <strong>specify another language</strong> using <code>--lang</code>:</p>
+<pre class="language-unknown"><code>$ formatter README.md --lang nl</code></pre><h5 id="table-of-contents-levels">Table of contents levels</h5>
+<p>By default the table of contents renders heading levels 2 to 6. You can <strong>specify different ToC levels</strong> using <code>--toc</code>:</p>
+<pre class="language-unknown"><code>$ formatter README.md --toc 3..4</code></pre><p>Convert markdown file to HTML and <strong>specify that no ToC should be rendered</strong> using <code>--noToc</code>:</p>
+<pre class="language-unknown"><code>$ formatter README.md --noToc</code></pre><h3 id="js">JS</h3>
 <p>To use Voorhoede Ocelot Formatter programmatically import the <code>voorhoede-ocelot-formatter</code> module.
 The formatter expects content in markdown (string) as an argument.
 The formatter returns a promise which resolves with the content as HTML (string).</p>
@@ -81,7 +93,13 @@ E.g, you can fetch content from a remote URL and log the output to the console:<
     <span class="token function">formatter</span><span class="token punctuation">(</span>readme<span class="token punctuation">)</span>
         <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>html <span class="token operator">=</span><span class="token operator">&gt;</span> fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">&apos;path/to/output&apos;</span><span class="token punctuation">,</span> html<span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="formatting-options">Formatting options</h2>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h4 id="options">Options</h4>
+<h5 id="document-language">Document language</h5>
+<p>The default document language is set to &apos;en&apos;. You can <strong>specify another language</strong>:</p>
+<pre class="language-javascript"><code><span class="token function">formatter</span><span class="token punctuation">(</span>readme<span class="token punctuation">,</span> <span class="token punctuation">{</span> language<span class="token punctuation">:</span> <span class="token string">&apos;nl&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre><h5 id="table-of-contents-levels">Table of contents levels</h5>
+<p>By default the table of contents renders heading levels 2 to 6. You can <strong>specify different ToC levels</strong>:</p>
+<pre class="language-javascript"><code><span class="token function">formatter</span><span class="token punctuation">(</span>readme<span class="token punctuation">,</span> toc<span class="token punctuation">:</span> <span class="token punctuation">{</span> minLevel<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> maxLevel<span class="token punctuation">:</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre><p>Specify that no ToC should be rendered:</p>
+<pre class="language-javascript"><code><span class="token function">formatter</span><span class="token punctuation">(</span>readme<span class="token punctuation">,</span> toc<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span></code></pre><h2 id="formatting-options">Formatting options</h2>
 <h3 id="footer">Footer</h3>
 <p>If you want to have content displayed in the footer, you can add a horizontal rule (---) in your markdown content.
 All content below the last horizontal rule will be displayed in the footer.</p>
