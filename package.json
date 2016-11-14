@@ -37,6 +37,7 @@
     "commander": "2.9.0",
     "iso-639-1": "1.2.1",
     "lodash": "4.16.4",
+    "lodash.inrange": "3.3.6",
     "marked": "0.3.6",
     "nunjucks": "2.5.0",
     "path": "0.12.7",
