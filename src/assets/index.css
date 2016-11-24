@@ -554,6 +554,26 @@ link:hover {
     }
 }
 
+.app-footer {
+    clear: both;
+    padding: 3rem calc(49.9% - 512px + 2rem);
+    background-color: #12353C;
+    color: #fff;
+}
+
+.app-footer .h1,
+.app-footer .h2,
+.app-footer .h3,
+.app-footer .h4,
+.app-footer .h5,
+.app-footer h1,
+.app-footer h2,
+.app-footer h3,
+.app-footer h4,
+.app-footer h5 {
+    color: #EDDD3E;
+}
+
 code[class*=language-],
 pre[class*=language-] {
     color: #000;
