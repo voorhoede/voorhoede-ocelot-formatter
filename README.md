@@ -56,6 +56,14 @@ Convert markdown file to HTML and **specify that no ToC should be rendered** usi
 $ formatter README.md --noToc
 ```
 
+##### Link to Github repo
+
+You can **add a link to your Github repo** by using `--github`:
+
+```bash
+$ formatter README.md --github username/reponame
+```
+
 ### JS
 
 To use Voorhoede Ocelot Formatter programmatically import the `voorhoede-ocelot-formatter` module.
@@ -114,6 +122,14 @@ Specify that no ToC should be rendered:
 
 ```javascript
 formatter(readme, { toc: false })
+```
+
+##### Link to Github repo
+
+You can **add a link to your Github repo**:
+
+```javascript
+formatter(readme, { github: 'username/reponame' })
 ```
 
 ## Formatting options
