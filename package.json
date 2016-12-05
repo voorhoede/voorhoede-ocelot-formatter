@@ -41,7 +41,7 @@
     "marked": "0.3.6",
     "nunjucks": "3.0.0",
     "path": "0.12.7",
-    "prismjs": "1.5.1"
+    "prismjs": "1.6.0"
   },
   "devDependencies": {
     "clean-css": "3.4.21",
