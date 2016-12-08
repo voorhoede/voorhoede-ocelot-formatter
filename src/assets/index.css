@@ -1,3 +1,10 @@
+.app-header,
+.page-header,
+sub,
+sup {
+    position: relative;
+}
+
 .link,
 a,
 a[rel=tel] {
@@ -66,7 +73,6 @@ sub,
 sup {
     font-size: 75%;
     line-height: 0;
-    position: relative;
     vertical-align: baseline
 }
 
@@ -258,7 +264,6 @@ link:hover {
 }
 
 .app-header {
-    position: relative;
     overflow: hidden;
     padding: 1rem .875rem;
     font-family: sans-serif
@@ -333,7 +338,6 @@ link:hover {
 
 .page-header {
     clear: left;
-    position: relative;
     text-align: center;
     font-family: sans-serif;
     margin-bottom: 1rem;
@@ -547,6 +551,26 @@ link:hover {
     .toc-level-6 {
         margin-left: 4em;
     }
+}
+
+.app-footer {
+    clear: both;
+    padding: 3rem calc(49.9% - 512px + 2rem);
+    background-color: #12353C;
+    color: #fff;
+}
+
+.app-footer .h1,
+.app-footer .h2,
+.app-footer .h3,
+.app-footer .h4,
+.app-footer .h5,
+.app-footer h1,
+.app-footer h2,
+.app-footer h3,
+.app-footer h4,
+.app-footer h5 {
+    color: #EDDD3E;
 }
 
 code[class*=language-],

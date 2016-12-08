@@ -16,7 +16,7 @@
     "prebuild": "rm -rf dist/ && mkdir dist/",
     "example:fastatic": "examples/fastatic/index.js",
     "commit": "git-cz",
-    "test": "tape test/*.js | tap-spec",
+    "test": "tape test/*.js | faucet",
     "coverage": "npm run coverage:generate && npm run coverage:report",
     "coverage:generate": "istanbul cover tape -- test/**/*.js",
     "coverage:report": "cat ./coverage/lcov.info | coveralls"
@@ -44,14 +44,14 @@
     "prismjs": "1.5.1"
   },
   "devDependencies": {
-    "clean-css": "3.4.20",
+    "clean-css": "3.4.21",
     "commitizen": "2.8.6",
     "coveralls": "2.11.15",
     "cz-conventional-changelog": "1.2.0",
+    "faucet": "0.0.1",
     "istanbul": "0.4.5",
     "mkdirp": "0.5.1",
     "shelljs": "0.7.5",
-    "tap-spec": "4.1.1",
     "tape": "4.6.3"
   },
   "config": {
