@@ -1,3 +1,10 @@
+.app-header,
+.page-header,
+sub,
+sup {
+    position: relative;
+}
+
 .link,
 a,
 a[rel=tel] {
@@ -66,7 +73,6 @@ sub,
 sup {
     font-size: 75%;
     line-height: 0;
-    position: relative;
     vertical-align: baseline
 }
 
@@ -283,12 +289,6 @@ link:hover {
     }
 }
 
-@media (min-width:1024px) and (min-width:1024px) {
-    .app-header {
-        padding: 1rem calc(49.9% - 512px + 2rem)
-    }
-}
-
 .app-header-identity {
     float: left
 }
@@ -338,7 +338,6 @@ link:hover {
 
 .page-header {
     clear: left;
-    position: relative;
     text-align: center;
     font-family: sans-serif;
     margin-bottom: 1rem;
@@ -681,4 +680,31 @@ pre[class*=language-] {
 
 .token.entity {
     cursor: help
+}
+
+.github-corner svg {
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+    height: 54px;
+    width: 54px;
+}
+
+@media (min-width: 600px) {
+    .github-corner svg {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+.github-corner:hover .octo-arm,
+.github-corner:focus .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+    0%,100% { transform:rotate(0deg) }
+    20%,60% { transform:rotate(-25deg) }
+    40%,80% { transform:rotate(10deg) }
 }
