@@ -348,6 +348,10 @@ link:hover {
     font-family: sans-serif
 }
 
+.fonts-loaded .app-header {
+    font-family: 'Raleway', sans-serif;
+}
+
 .app-header:after,
 .app-header:before {
     display: table;
@@ -462,6 +466,10 @@ link:hover {
     font-size: 1.25em;
     font-weight: inherit;
     margin-bottom: 0
+}
+
+.page-header-sub-title strong {
+    font-weight: normal;
 }
 
 .section {
