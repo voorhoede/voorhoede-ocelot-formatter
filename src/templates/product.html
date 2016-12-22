@@ -7,6 +7,23 @@
     <title>{{ title | striptags }}</title>
     <meta name="description" content="{{ subtitle | striptags }}">
     <style>{%  include "../assets/index.min.css" %}</style>
+    <script>
+        var html = document.documentElement;
+        var script = document.createElement('script');
+        script.src = 'https://rawgit.com/voorhoede/voorhoede-ocelot-formatter/fonts/src/assets/scripts/fontfaceobserver.standalone.js';
+        script.async = true;
+
+        script.onload = function () {
+            var raleway = new FontFaceObserver('Raleway');
+
+            Promise.all([
+                raleway.load()
+            ]).then(function () {
+                html.classList.add('fonts-loaded');
+            });
+        };
+        document.head.appendChild(script);
+    </script>
 </head>
 <body>
 

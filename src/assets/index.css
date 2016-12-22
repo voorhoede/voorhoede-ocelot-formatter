@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('https://rawgit.com/voorhoede/voorhoede-ocelot-formatter/fonts/src/assets/fonts/raleway-medium-webfont.woff2') format("woff2"),
+    url('https://rawgit.com/voorhoede/voorhoede-ocelot-formatter/fonts/src/assets/fonts/raleway-medium-webfont.woff') format("woff");
+}
+
 .app-header,
 .page-header,
 sub,
@@ -173,6 +179,21 @@ h6 {
     margin: 0;
     padding: 0;
     line-height: 1.1
+}
+
+.fonts-loaded .h1,
+.fonts-loaded .h2,
+.fonts-loaded .h3,
+.fonts-loaded .h4,
+.fonts-loaded .h5,
+.fonts-loaded .h6,
+.fonts-loaded h1,
+.fonts-loaded h2,
+.fonts-loaded h3,
+.fonts-loaded h4,
+.fonts-loaded h5,
+.fonts-loaded h6 {
+    font-family: 'Raleway', sans-serif;
 }
 
 .h2,
