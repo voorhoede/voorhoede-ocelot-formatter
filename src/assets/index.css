@@ -78,8 +78,7 @@ html {
 }
 
 html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%
+    font-size: 100%;
 }
 
 article,
@@ -189,11 +188,19 @@ html {
 
 body {
     margin: 0;
-    -webkit-font-feature-settings: "kern", "liga";
+    -webkit-text-size-adjust: 100%;
+    font-feature-settings: "kern", "liga";
+    -webkit-font-smoothing: antialiased;
     color: #12353C;
     background-color: #fff;
     font-family: Georgia, serif;
-    line-height: 1.6
+    line-height: 1.6;
+    letter-spacing: 0.0385em;
+}
+
+.fonts-loaded body {
+    font-family: 'Noto', Georgia, serif;
+    letter-spacing: 0;
 }
 
 .app-header,
@@ -224,6 +231,7 @@ h4,
 h5,
 h6 {
     font-family: sans-serif;
+    letter-spacing: -0.005em;
     color: #12353C;
     margin: 0;
     padding: 0;
@@ -243,6 +251,7 @@ h6 {
 .fonts-loaded h5,
 .fonts-loaded h6 {
     font-family: 'Raleway', sans-serif;
+    letter-spacing: 0;
 }
 
 .h2,
