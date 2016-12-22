@@ -32,7 +32,7 @@
     "url": "https://github.com/voorhoede/voorhoede-ocelot-formatter/issues"
   },
   "dependencies": {
-    "bluebird": "3.4.6",
+    "bluebird": "3.4.7",
     "cheerio": "0.22.0",
     "commander": "2.9.0",
     "iso-639-1": "1.2.2",
