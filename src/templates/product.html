@@ -8,39 +8,50 @@
     <meta name="description" content="{{ subtitle | striptags }}">
     <style>{%  include "../assets/index.min.css" %}</style>
     <script>
-        var html = document.documentElement;
-        var FONTS_LOADED_CLASS = 'fonts-loaded';
+        (function() {
+            if (!window.Promise) {
+                var script = document.createElement('script');
+                script.src = 'https://rawgit.com/voorhoede/voorhoede-ocelot-formatter/fonts/src/assets/scripts/promise.js';
+                document.head.appendChild(script);
+            }
+        }());
+    </script>
+    <script>
+        (function(window) {
+            var html = document.documentElement;
+            var FONTS_LOADED_CLASS = 'fonts-loaded';
 
-        if (sessionStorage.fontsLoaded) {
-            html.classList.add(FONTS_LOADED_CLASS);
-        } else {
-            var script = document.createElement('script');
-            script.src = 'https://rawgit.com/voorhoede/voorhoede-ocelot-formatter/fonts/src/assets/scripts/fontfaceobserver.standalone.js';
-            script.async = true;
+            if (sessionStorage.fontsLoaded) {
+                html.classList.add(FONTS_LOADED_CLASS);
+            } else {
+                var script = document.createElement('script');
+                script.src = 'https://rawgit.com/voorhoede/voorhoede-ocelot-formatter/fonts/src/assets/scripts/fontfaceobserver.standalone.js';
+                script.async = true;
 
-            script.onload = function () {
-                var ralewayMedium = new FontFaceObserver('Raleway', {weight: 400});
-                var ralewaySemiBold = new FontFaceObserver('Raleway', {weight: 600});
-                var ralewayBold = new FontFaceObserver('Raleway', {weight: 700});
+                script.onload = function () {
+                    var ralewayMedium = new window.FontFaceObserver('Raleway', {weight: 400});
+                    var ralewaySemiBold = new window.FontFaceObserver('Raleway', {weight: 600});
+                    var ralewayBold = new window.FontFaceObserver('Raleway', {weight: 700});
+    
+                    var notoRegular = new window.FontFaceObserver('Noto', {weight: 400});
+                    var notoBold = new window.FontFaceObserver('Noto', {weight: 700});
+                    var notoItalic = new window.FontFaceObserver('Noto', {weight: 400, style: 'italic'});
 
-                var notoRegular = new FontFaceObserver('Noto', {weight: 400});
-                var notoBold = new FontFaceObserver('Noto', {weight: 700});
-                var notoItalic = new FontFaceObserver('Noto', {weight: 400, style: 'italic'});
-
-                Promise.all([
-                    ralewayMedium.load(),
-                    ralewaySemiBold.load(),
-                    ralewayBold.load(),
-                    notoRegular.load(),
-                    notoBold.load(),
-                    notoItalic.load()
-                ]).then(function () {
-                    html.classList.add(FONTS_LOADED_CLASS);
-                    sessionStorage.fontsLoaded = true;
-                });
-            };
-            document.head.appendChild(script);
-        }
+                    window.Promise.all([
+                        ralewayMedium.load(),
+                        ralewaySemiBold.load(),
+                        ralewayBold.load(),
+                        notoRegular.load(),
+                        notoBold.load(),
+                        notoItalic.load()
+                    ]).then(function () {
+                        html.classList.add(FONTS_LOADED_CLASS);
+                        sessionStorage.fontsLoaded = true;
+                    });
+                };
+                document.head.appendChild(script);
+            }
+        }(window));
     </script>
 </head>
 <body>
