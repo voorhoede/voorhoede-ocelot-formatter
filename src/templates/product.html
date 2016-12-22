@@ -14,10 +14,21 @@
         script.async = true;
 
         script.onload = function () {
-            var raleway = new FontFaceObserver('Raleway');
+            var ralewayMedium = new FontFaceObserver('Raleway', {weight: 400});
+            var ralewaySemiBold = new FontFaceObserver('Raleway', {weight: 600});
+            var ralewayBold = new FontFaceObserver('Raleway', {weight: 700});
+
+            var notoRegular = new FontFaceObserver('Noto', {weight: 400});
+            var notoBold = new FontFaceObserver('Noto', {weight: 700});
+            var notoItalic = new FontFaceObserver('Noto', {weight: 400, style: 'italic'});
 
             Promise.all([
-                raleway.load()
+                ralewayMedium.load(),
+                ralewaySemiBold.load(),
+                ralewayBold.load(),
+                notoRegular.load(),
+                notoBold.load(),
+                notoItalic.load()
             ]).then(function () {
                 html.classList.add('fonts-loaded');
             });
