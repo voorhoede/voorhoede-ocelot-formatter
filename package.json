@@ -32,11 +32,11 @@
     "url": "https://github.com/voorhoede/voorhoede-ocelot-formatter/issues"
   },
   "dependencies": {
-    "bluebird": "3.4.6",
+    "bluebird": "3.4.7",
     "cheerio": "0.22.0",
     "commander": "2.9.0",
     "iso-639-1": "1.2.4",
-    "lodash": "4.17.2",
+    "lodash": "4.17.3",
     "lodash.inrange": "3.3.6",
     "marked": "0.3.6",
     "nunjucks": "3.0.0",
@@ -44,8 +44,8 @@
     "prismjs": "1.6.0"
   },
   "devDependencies": {
-    "clean-css": "3.4.21",
-    "commitizen": "2.8.6",
+    "clean-css": "3.4.22",
+    "commitizen": "2.8.7",
     "coveralls": "2.11.15",
     "cz-conventional-changelog": "1.2.0",
     "faucet": "0.0.1",
