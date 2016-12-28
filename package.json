@@ -1,6 +1,6 @@
 {
   "name": "voorhoede-ocelot-formatter",
-  "version": "0.3.2",
+  "version": "0.4.2",
   "description": "Format plain content as Voorhoede pages",
   "keywords": [
     "formatter"
