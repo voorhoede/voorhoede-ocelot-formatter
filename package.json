@@ -36,7 +36,7 @@
     "cheerio": "0.22.0",
     "commander": "2.9.0",
     "iso-639-1": "1.2.5",
-    "lodash": "4.17.3",
+    "lodash": "4.17.4",
     "lodash.inrange": "3.3.6",
     "marked": "0.3.6",
     "nunjucks": "3.0.0",
