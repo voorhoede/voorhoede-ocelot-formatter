@@ -412,10 +412,15 @@ link:hover {
 }
 
 .page-content {
-    margin: 0 0 0 -1rem
+    margin: 0 auto;
+    max-width: 725px;
 }
 
-.page-content>* {
+.side-content + .page-content {
+    margin: 0 0 0 -1rem;
+}
+
+.side-content + .page-content>* {
     padding-left: 1rem;
     padding-bottom: 1rem;
     border-left: 2px solid #EDDD3E;
@@ -429,7 +434,7 @@ link:hover {
 }
 
 @media (min-width:800px) {
-    .page-content>* {
+    .side-content + .page-content>* {
         padding-left: 3rem;
         padding-right: 2rem
     }
@@ -439,7 +444,7 @@ link:hover {
 }
 
 @media (min-width:1024px) {
-    .page-content {
+    .side-content + .page-content {
         float: right;
         margin: 0 auto;
         width: 75%
