@@ -7,6 +7,13 @@
     <title>{{ title | striptags }}</title>
     <meta name="description" content="{{ subtitle | striptags }}">
     <style>{%  include "../assets/index.min.css" %}</style>
+    <script>
+        (function() {
+            if (sessionStorage.fontsLoaded) {
+                document.documentElement.classList.add('fonts-loaded');
+            }
+        }());
+    </script>
 </head>
 <body>
 
@@ -77,12 +84,8 @@
     </script>
     <script>
         (function(window) {
-            var html = document.documentElement;
-            var FONTS_LOADED_CLASS = 'fonts-loaded';
 
-            if (sessionStorage.fontsLoaded) {
-                html.classList.add(FONTS_LOADED_CLASS);
-            } else {
+            if (!sessionStorage.fontsLoaded) {
                 var script = document.createElement('script');
                 script.src = 'https://rawgit.com/voorhoede/voorhoede-ocelot-formatter/fonts/src/assets/scripts/fontfaceobserver.standalone.js';
                 script.async = true;
@@ -104,7 +107,7 @@
                         notoBold.load(),
                         notoItalic.load()
                     ]).then(function () {
-                        html.classList.add(FONTS_LOADED_CLASS);
+                        document.documentElement.classList.add('fonts-loaded');
                         sessionStorage.fontsLoaded = true;
                     });
                 };
