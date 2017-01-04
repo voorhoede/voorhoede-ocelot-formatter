@@ -89,29 +89,30 @@
                 var script = document.createElement('script');
                 script.src = 'https://rawgit.com/voorhoede/voorhoede-ocelot-formatter/fonts/src/assets/scripts/fontfaceobserver.standalone.js';
                 script.async = true;
+                var fonts = {
+                    Noto: [ { weight: 400 }, { weight: 400, style: 'italic' }, { weight: 700 }],
+                    Raleway: [ { weight: 400 }, { weight: 600 }, { weight: 700 }]
+                };
 
                 script.onload = function () {
-                    var ralewayMedium = new window.FontFaceObserver('Raleway', {weight: 400});
-                    var ralewaySemiBold = new window.FontFaceObserver('Raleway', {weight: 600});
-                    var ralewayBold = new window.FontFaceObserver('Raleway', {weight: 700});
-
-                    var notoRegular = new window.FontFaceObserver('Noto', {weight: 400});
-                    var notoBold = new window.FontFaceObserver('Noto', {weight: 700});
-                    var notoItalic = new window.FontFaceObserver('Noto', {weight: 400, style: 'italic'});
-
-                    window.Promise.all([
-                        ralewayMedium.load(),
-                        ralewaySemiBold.load(),
-                        ralewayBold.load(),
-                        notoRegular.load(),
-                        notoBold.load(),
-                        notoItalic.load()
-                    ]).then(function () {
-                        document.documentElement.classList.add('fonts-loaded');
-                        sessionStorage.fontsLoaded = true;
-                    });
+                    loadFonts(fonts, 'fonts-loaded');
                 };
                 document.head.appendChild(script);
+
+                function loadFonts(fontDefinitions, fontsLoadedClass) {
+                    var promises = [];
+
+                    Object.keys(fontDefinitions).forEach(function(fontFamily){
+                        fontDefinitions[fontFamily].forEach(function(properties){
+                            promises.push(new window.FontFaceObserver(fontFamily, properties)).load();
+                        });
+                    });
+
+                    window.Promise.all(promises).then(function () {
+                        document.documentElement.classList.add(fontsLoadedClass);
+                        sessionStorage.fontsLoaded = true;
+                    });
+                }
             }
         }(window));
     </script>
