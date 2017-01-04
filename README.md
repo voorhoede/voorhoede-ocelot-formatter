@@ -107,7 +107,7 @@ fs.readFile('path/to/README.md', 'utf8', (err, readme) => {
 The default document language is set to 'en'. You can **specify another language**:
 
 ```javascript
-formatter(readme, { language: 'nl' })
+formatter(readme, { lang: 'nl' })
 ```
 
 ##### Table of contents levels
