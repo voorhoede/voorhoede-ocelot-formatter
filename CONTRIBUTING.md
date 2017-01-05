@@ -66,6 +66,7 @@ After installing dependencies (run `npm install`) the following scripts are avai
 `build:css` | Minify `src/assets/index.css` file into `src/assets/index.min.css`.
 `prebuild` | Remove and create clean `dist` directory.
 `example:fastatic` | Create an example from Fastatic's `README.md`.
+`start:fastatic` | Start http server for reviewing Fastatic example.
 `commit` | Make a commit using the project configuration for contribution.
 `test` | Test all files in the `test` directory.
 `coverage` | Run tests, create a coverage report and report it to Coveralls.
