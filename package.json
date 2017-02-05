@@ -46,7 +46,7 @@
   "devDependencies": {
     "clean-css": "3.4.24",
     "commitizen": "2.9.4",
-    "coveralls": "2.11.15",
+    "coveralls": "2.11.16",
     "cz-conventional-changelog": "1.2.0",
     "faucet": "0.0.1",
     "istanbul": "0.4.5",
