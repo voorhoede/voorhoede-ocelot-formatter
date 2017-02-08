@@ -36,7 +36,7 @@
     "bluebird": "3.4.7",
     "cheerio": "0.22.0",
     "commander": "2.9.0",
-    "iso-639-1": "1.2.5",
+    "iso-639-1": "1.3.0",
     "lodash": "4.17.4",
     "lodash.inrange": "3.3.6",
     "marked": "0.3.6",
@@ -45,9 +45,9 @@
     "prismjs": "1.6.0"
   },
   "devDependencies": {
-    "clean-css": "3.4.22",
-    "commitizen": "2.9.3",
-    "coveralls": "2.11.15",
+    "clean-css": "3.4.24",
+    "commitizen": "2.9.4",
+    "coveralls": "2.11.16",
     "cz-conventional-changelog": "1.2.0",
     "faucet": "0.0.1",
     "http-server": "0.9.0",
