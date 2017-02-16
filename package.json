@@ -15,7 +15,7 @@
     "build:css": "cleancss -o src/assets/index.min.css src/assets/index.css",
     "prebuild": "rm -rf dist/ && mkdir dist/",
     "example:fastatic": "examples/fastatic/index.js",
-    "start:fastatic": "http-server 'examples/fastatic/' -i",
+    "start": "http-server './examples/' -c-1 -p 3676",
     "commit": "git-cz",
     "test": "tape test/*.js | faucet",
     "coverage": "npm run coverage:generate && npm run coverage:report",
