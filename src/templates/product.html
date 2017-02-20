@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title | striptags }}</title>
     <meta name="description" content="{{ subtitle | striptags }}">
-    <link href="assets/index.min.css" rel="stylesheet">
+    <link href="/assets/index.min.css" rel="stylesheet">
     <script>
         (function() {
             if (sessionStorage.fontsLoaded) {
@@ -77,7 +77,7 @@
         (function() {
             if (!window.Promise) {
                 var script = document.createElement('script');
-                script.src = 'assets/scripts/promise.js';
+                script.src = '/assets/scripts/promise.js';
                 document.head.appendChild(script);
             }
         }());
@@ -87,7 +87,7 @@
 
             if (!sessionStorage.fontsLoaded) {
                 var script = document.createElement('script');
-                script.src = 'assets/scripts/fontfaceobserver.standalone.js';
+                script.src = '/assets/scripts/fontfaceobserver.standalone.js';
                 script.async = true;
                 var fonts = {
                     Noto: [ { weight: 400 }, { weight: 400, style: 'italic' }, { weight: 700 }],
