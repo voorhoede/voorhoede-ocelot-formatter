@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title | striptags }}</title>
     <meta name="description" content="{{ subtitle | striptags }}">
-    <style>{%  include "../assets/index.min.css" %}</style>
+    <link href="/assets/index.min.css" rel="stylesheet">
+    <script>
+        (function(html) {
+            if (sessionStorage.fontsLoaded) {
+                html.className = html.className += ' ' + fontsLoadedClass;
+            }
+        }(document.documentElement));
+    </script>
 </head>
 <body>
 
@@ -31,7 +38,7 @@
     <main>
         <header class="page-header">
             <h1 class="page-header-title">{{ title | safe }}</h1>
-            <p class="page-header-sub-title">{{ subtitle | safe }}</p>
+            <h2 class="page-header-sub-title">{{ subtitle | safe }}</h2>
         </header>
 
         <div class="section">
@@ -65,6 +72,48 @@
         {%- endif -%}
 
     </main>
+
+    <script>
+        (function() {
+            if (!window.Promise) {
+                var script = document.createElement('script');
+                script.src = '/assets/scripts/promise.js';
+                document.head.appendChild(script);
+            }
+        }());
+    </script>
+    <script>
+        (function(window) {
+
+            if (!sessionStorage.fontsLoaded) {
+                var script = document.createElement('script');
+                script.src = '/assets/scripts/fontfaceobserver.standalone.js';
+                script.async = true;
+                var fonts = {
+                    Noto: [ { weight: 400 }, { weight: 400, style: 'italic' }, { weight: 700 }],
+                    Raleway: [ { weight: 400 }, { weight: 600 }, { weight: 700 }]
+                };
+
+                script.onload = function () {
+                    loadFonts(fonts, 'fonts-loaded');
+                };
+                document.head.appendChild(script);
+
+                function loadFonts(fonts, fontsLoadedClass) {
+                    Promise.all(Object.keys(fonts).map(function(name){
+                        return Promise.all(fonts[name].map(function(variants){
+                            return (new window.FontFaceObserver(name, variants)).load();
+                        }));
+                    }))
+                    .then(function () {
+                        var html = document.documentElement;
+                        html.className = html.className += ' ' + fontsLoadedClass;
+                        sessionStorage.fontsLoaded = true;
+                    });
+                }
+            }
+        }(window));
+    </script>
 
 </body>
 </html>

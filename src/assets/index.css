@@ -1,3 +1,58 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('/assets/fonts/raleway-extrabold-webfont.woff2') format("woff2"),
+    url('/assets/fonts/raleway-extrabold-webfont.woff') format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('/assets/fonts/raleway-semibold-webfont.woff2') format("woff2"),
+    url('/assets/fonts/raleway-semibold-webfont.woff') format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('/assets/fonts/raleway-medium-webfont.woff2') format("woff2"),
+    url('/assets/fonts/raleway-medium-webfont.woff') format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url('/assets/fonts/raleway-light-webfont.woff2') format("woff2"),
+    url('/assets/fonts/raleway-light-webfont.woff') format("woff");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto';
+    src: url('/assets/fonts/notoserif-regular-webfont.woff2') format("woff2"),
+    url('/assets/fonts/notoserif-regular-webfont.woff') format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto';
+    src: url('/assets/fonts/notoserif-bold-webfont.woff2') format("woff2"),
+    url('/assets/fonts/notoserif-bold-webfont.woff') format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto';
+    src: url('/assets/fonts/notoserif-italic-webfont.woff2') format("woff2"),
+    url('/assets/fonts/notoserif-italic-webfont.woff') format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+
 .app-header,
 .page-header,
 sub,
@@ -23,8 +78,7 @@ html {
 }
 
 html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%
+    font-size: 100%;
 }
 
 article,
@@ -134,11 +188,19 @@ html {
 
 body {
     margin: 0;
-    -webkit-font-feature-settings: "kern", "liga";
+    -webkit-text-size-adjust: 100%;
+    font-feature-settings: "kern", "liga";
+    -webkit-font-smoothing: antialiased;
     color: #12353C;
     background-color: #fff;
     font-family: Georgia, serif;
-    line-height: 1.6
+    line-height: 1.6;
+    letter-spacing: 0.0385em;
+}
+
+.fonts-loaded body {
+    font-family: 'Noto', Georgia, serif;
+    letter-spacing: 0;
 }
 
 .app-header,
@@ -169,10 +231,27 @@ h4,
 h5,
 h6 {
     font-family: sans-serif;
+    letter-spacing: -0.005em;
     color: #12353C;
     margin: 0;
     padding: 0;
     line-height: 1.1
+}
+
+.fonts-loaded .h1,
+.fonts-loaded .h2,
+.fonts-loaded .h3,
+.fonts-loaded .h4,
+.fonts-loaded .h5,
+.fonts-loaded .h6,
+.fonts-loaded h1,
+.fonts-loaded h2,
+.fonts-loaded h3,
+.fonts-loaded h4,
+.fonts-loaded h5,
+.fonts-loaded h6 {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 0;
 }
 
 .h2,
@@ -267,6 +346,10 @@ link:hover {
     overflow: hidden;
     padding: 1rem .875rem;
     font-family: sans-serif
+}
+
+.fonts-loaded .app-header {
+    font-family: 'Raleway', sans-serif;
 }
 
 .app-header:after,
@@ -383,6 +466,10 @@ link:hover {
     font-size: 1.25em;
     font-weight: inherit;
     margin-bottom: 0
+}
+
+.page-header-sub-title strong {
+    font-weight: normal;
 }
 
 .section {
