@@ -10,10 +10,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "npm run prebuild && npm run build:css && npm run build:index && npm run build:assets",
+    "build": "npm run build:css && npm run build:index && npm run build:assets",
     "build:index": "node bin/index.js README.md >> dist/index.html",
     "build:css": "cleancss -o src/assets/index.min.css src/assets/index.css",
-    "build:assets": "ncp src/assets/ dist/assets && replace 'assets/' 'https://voorhoede.github.io/voorhoede-ocelot-formatter/assets/' -r dist",
+    "build:assets": "ncp src/assets/ dist/assets && replace '/assets/' 'https://voorhoede.github.io/voorhoede-ocelot-formatter/assets/' -r dist",
     "prebuild": "rm -rf dist/ && mkdir dist/",
     "example:fastatic": "ncp src/assets/ examples/assets && examples/fastatic/index.js",
     "start": "http-server './examples/' -c-1 -p 3676",

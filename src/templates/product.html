@@ -8,11 +8,11 @@
     <meta name="description" content="{{ subtitle | striptags }}">
     <link href="/assets/index.min.css" rel="stylesheet">
     <script>
-        (function() {
+        (function(html) {
             if (sessionStorage.fontsLoaded) {
-                document.documentElement.classList.add('fonts-loaded');
+                html.className = html.className += ' ' + fontsLoadedClass;
             }
-        }());
+        }(document.documentElement));
     </script>
 </head>
 <body>
@@ -99,17 +99,15 @@
                 };
                 document.head.appendChild(script);
 
-                function loadFonts(fontDefinitions, fontsLoadedClass) {
-                    var promises = [];
-
-                    Object.keys(fontDefinitions).forEach(function(fontFamily){
-                        fontDefinitions[fontFamily].forEach(function(properties){
-                            promises.push(new window.FontFaceObserver(fontFamily, properties)).load();
-                        });
-                    });
-
-                    window.Promise.all(promises).then(function () {
-                        document.documentElement.classList.add(fontsLoadedClass);
+                function loadFonts(fonts, fontsLoadedClass) {
+                    Promise.all(Object.keys(fonts).map(function(name){
+                        return Promise.all(fonts[name].map(function(variants){
+                            return (new window.FontFaceObserver(name, variants)).load();
+                        }));
+                    }))
+                    .then(function () {
+                        var html = document.documentElement;
+                        html.className = html.className += ' ' + fontsLoadedClass;
                         sessionStorage.fontsLoaded = true;
                     });
                 }
