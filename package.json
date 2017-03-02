@@ -46,7 +46,7 @@
     "prismjs": "1.6.0"
   },
   "devDependencies": {
-    "clean-css": "3.4.24",
+    "clean-css": "4.0.8",
     "commitizen": "2.9.6",
     "coveralls": "2.11.16",
     "cz-conventional-changelog": "2.0.0",
