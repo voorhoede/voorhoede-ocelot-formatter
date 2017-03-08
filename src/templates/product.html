@@ -10,7 +10,7 @@
     <script>
         (function(html) {
             if (sessionStorage.fontsLoaded) {
-                html.className = html.className += ' ' + fontsLoadedClass;
+                html.className = html.className += ' ' + 'fonts-loaded';
             }
         }(document.documentElement));
     </script>
@@ -107,7 +107,7 @@
                     }))
                     .then(function () {
                         var html = document.documentElement;
-                        html.className = html.className += ' ' + fontsLoadedClass;
+                        html.className = html.className += ' ' + 'fonts-loaded';
                         sessionStorage.fontsLoaded = true;
                     });
                 }
