@@ -10,7 +10,7 @@
     <script>
         (function(html) {
             if (sessionStorage.fontsLoaded) {
-                html.className = html.className += ' ' + fontsLoadedClass;
+                html.className = html.className += ' ' + 'fonts-loaded';
             }
         }(document.documentElement));
     </script>
@@ -164,7 +164,7 @@ All content below the last horizontal rule will be displayed in the footer.</p>
                     }))
                     .then(function () {
                         var html = document.documentElement;
-                        html.className = html.className += ' ' + fontsLoadedClass;
+                        html.className = html.className += ' ' + 'fonts-loaded';
                         sessionStorage.fontsLoaded = true;
                     });
                 }
