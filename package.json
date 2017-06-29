@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "clean-css": "4.0.8",
-    "clean-css-cli": "4.0.9",
+    "clean-css-cli": "4.1.6",
     "commitizen": "2.9.6",
     "coveralls": "2.11.16",
     "cz-conventional-changelog": "2.0.0",
