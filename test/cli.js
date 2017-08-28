@@ -1,16 +1,27 @@
 const test = require('tape');
-const shell = require('shelljs');
 const binPath = require('../package.json').bin.formatter;
+const { spawnSync, exec } = require('child_process');
 
 
 test('cli should output html', t => {
-    const output = shell.exec(`node ${binPath} README.md`, { silent: true });
-    t.equal(/<html.*>/.test(output.stdout), true);
+    const formatter = spawnSync('node', [ binPath, 'README.md' ]);
+    t.equal(/<html.*>/.test(formatter.stdout.toString()), true);
     t.end();
 });
 
 test('cli should throw error if no source file provided', t => {
-    const output = shell.exec(`node ${binPath}`, { silent: true });
-    t.equal(output.stderr.length > 0, true);
+    const formatter = spawnSync('node', [ binPath ]);
+    t.equal(formatter.stderr.toString().length > 0, true);
     t.end();
+});
+
+test('cli should accept a stream as input', t => {
+    exec(`echo "# markdown\n ## FTW\n" | node ${binPath}`, (err, stdout) => {
+        if (err) {
+            t.fail(err);
+            return;
+        }
+        t.equal(/<html.*>/.test(stdout.toString()), true);
+        t.end();
+    });
 });
