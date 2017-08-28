@@ -41,6 +41,7 @@
     "lodash": "4.17.4",
     "lodash.inrange": "3.3.6",
     "marked": "0.3.6",
+    "mkdirp": "^0.5.1",
     "nunjucks": "3.0.1",
     "path": "0.12.7",
     "prismjs": "1.6.0"
@@ -54,7 +55,6 @@
     "faucet": "0.0.1",
     "http-server": "0.10.0",
     "istanbul": "0.4.5",
-    "mkdirp": "0.5.1",
     "replace": "0.3.0",
     "ncp": "2.0.0",
     "shelljs": "0.7.7",
