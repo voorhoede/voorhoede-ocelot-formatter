@@ -42,7 +42,7 @@
     "lodash.inrange": "3.3.6",
     "marked": "0.3.6",
     "mkdirp": "^0.5.1",
-    "nunjucks": "3.0.1",
+    "nunjucks": "3.1.0",
     "path": "0.12.7",
     "prismjs": "1.6.0"
   },
