@@ -32,6 +32,22 @@ Convert markdown file to HTML and **output content to an HTML file** using `--ou
 $ formatter README.md --output path/to/output/file.html
 ```
 
+Streaming i/o is supported:
+
+```bash
+$ formatter < README.md > path/to/output/file.html
+```
+
+Streaming can be combined with usage of command-line flags/args:
+
+```bash
+# stream in
+$ cat README.md | formatter --output path/to/output/file.html
+
+# stream out
+$ formatter README.md > path/to/output/file.html
+```
+
 #### Options
 
 ##### Document language

@@ -23,3 +23,8 @@ test('should throw an exception if an invalid ToC level is passed', t => {
     t.throws(() => defineSettings({ toc: { minLevel: 7, maxLevel: 6 } }));
     t.end();
 });
+
+test('should omit ToC if noToc option is set', t => {
+    t.equal(defineSettings({ noToc: true }).toc, false);
+    t.end();
+});

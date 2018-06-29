@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const defineSettings = require('../lib/define-settings');
 const formatter = require('../index');
 const pkg = require('../package');
 const path = require('path');
@@ -7,10 +8,11 @@ const promisify = require('bluebird').promisify;
 const promisifyAll = require('bluebird').promisifyAll;
 const makeDir = promisify(require('mkdirp'));
 const fs = promisifyAll(require('fs'));
+const through = require('through2');
 
 function range(value) {
     const values = value.split('..').map(Number);
-    return { min: values[0], max: values[1] }
+    return { minLevel: values[0], maxLevel: values[1] }
 }
 
 const program = require('commander')
@@ -24,27 +26,77 @@ const program = require('commander')
     .option('-g, --github [value]', 'add link to Github page')
     .parse(process.argv);
 
-const srcFile = path.join(program.args[0]);
-const destFile = program.output;
+let options;
 
-program.toc = program.toc || [];
+try {
+    // Errors if ToC is given and out of range
+    options = defineSettings(program);
+} catch(err) {
+    failWithError(err);
+}
 
-const format = fs.readFileAsync(srcFile, 'utf8')
-    .then(readme => formatter(readme, {
-        lang: program.lang,
-        toc: program.noToc ? false : { minLevel: program.toc.min, maxLevel: program.toc.max },
-        github: program.github
-    }));
+const destFile = options.output;
+const stdin = process.stdin;
 
-if (program.output) {
-    format
-        .then(html => {
-            return makeDir(path.dirname(destFile))
-                .then(() => fs.writeFileAsync(destFile, html))
-        })
-        .catch(err => console.error(err));
-} else {
-    format
-        .then(html => console.log(html))
-        .catch(err => console.log(err));
+if (destFile) {
+    // Create output directory if it doesn't exist
+    makeDir.sync(path.dirname(destFile));
+}
+
+stdin.once('readable', () => {
+    // if data can be read from stdin, we're streaming.
+    const data = stdin.read();
+    let stream;
+    if (!data) { // input is not a stream
+        const srcFile = program.args[0];
+        if (!srcFile) { // if not streaming, an input file should be provided
+            failWithError('Error: Expected input filename or stream');
+        }
+        stream = fs.createReadStream(srcFile)
+            .pipe(transform(options).on('error', failWithError))
+            .on('end', () => stdin.end());
+    } else { // input is a stream
+        // data previously read from stream is prepended here
+        stream = stdin.pipe(transform(options, data)
+            .on('error', failWithError));
+    }
+
+    if (!destFile) { // output to terminal
+        stream.pipe(process.stdout);
+    } else { // write to file
+        stream.pipe(fs.createWriteStream(destFile));
+    }
+});
+
+/**
+ * Transform stream translates markdown to html
+ *
+ * @param {object} options for html renderer
+ * @param {buffer} buf buffer to append read bytes to
+ * @returns {stream}
+ */
+function transform(options, buffer) {
+    buffer = buffer || new Buffer('');
+    return through((chunk, enc, cb) => {
+        buf = Buffer.concat([buffer, chunk]);
+        cb();
+    }, function(cb) {
+        const stream = this;
+        formatter(buffer.toString(), options)
+            .then(html => {
+                this.push(html);
+                cb();
+            })
+            .catch(cb);
+    });
+}
+
+/**
+ * Log error to stdout and exit non-zero
+ *
+ * @param {Error} err
+ */
+function failWithError(err) {
+    console.error(err)
+    process.exit(1);
 }

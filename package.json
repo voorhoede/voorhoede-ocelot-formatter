@@ -44,7 +44,8 @@
     "mkdirp": "^0.5.1",
     "nunjucks": "3.0.1",
     "path": "0.12.7",
-    "prismjs": "1.6.0"
+    "prismjs": "1.6.0",
+    "through2": "^2.0.3"
   },
   "devDependencies": {
     "clean-css": "4.0.8",
